@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using APBD02v2.Models;
 
 namespace APBD02v2 {
     class Program {
@@ -18,7 +20,13 @@ namespace APBD02v2 {
             //stream.Dispose();
 
             //XML
-
+            var list = new List<Student>();
+            var st = new Student {
+                Imie = "Jan",
+                Nazwisko = "Kowalski",
+                Email = "kowalski@wp.pl"
+            };
+            list.Add(st);
         }
     }
 }
