@@ -88,12 +88,14 @@ namespace APBD02v2 {
                     //Console.WriteLine(line);
                 }
             }
-            //stream.Dispose();
+
             Studenci studenci = new Studenci {
                 studenci = list
             };
 
             FileStream writer = new FileStream(result, FileMode.Create);
+
+            //If serializing in XML
             if(string.Equals("xml", dataFormat)) {
                 XmlSerializer serializer = new XmlSerializer(typeof(Studenci), new XmlRootAttribute("uczelnia"));
                 serializer.Serialize(writer, studenci);
