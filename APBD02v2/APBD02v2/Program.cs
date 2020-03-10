@@ -7,9 +7,21 @@ using APBD02v2.Models;
 namespace APBD02v2 {
     class Program {
         static void Main(string[] args) {
-            string path = @"Data/dane.csv";
+            string path;
+            string result;
+            string dataFormat;
             string logPath = "log.txt";
             var list = new List<Student>();
+
+            if(args.Length != 3) {
+                path = @"Data/data.csv";
+                result = @"result.xml";
+                dataFormat = "xml";
+            } else {
+                path = args[0];
+                result = args[1];
+                dataFormat = args[2];
+            }
 
             //If log file doesn't exist the follwing line creates it; if it does the line does nothing
             using(StreamWriter w = File.AppendText("log.txt"));
@@ -81,9 +93,11 @@ namespace APBD02v2 {
                 studenci = list
             };
 
-            FileStream writer = new FileStream(@"data.xml", FileMode.Create);
-            XmlSerializer serializer = new XmlSerializer(typeof(Studenci), new XmlRootAttribute("uczelnia"));
-            serializer.Serialize(writer, studenci);
+            FileStream writer = new FileStream(result, FileMode.Create);
+            if(string.Equals("xml", dataFormat)) {
+                XmlSerializer serializer = new XmlSerializer(typeof(Studenci), new XmlRootAttribute("uczelnia"));
+                serializer.Serialize(writer, studenci);
+            }
         }
     }
 }
