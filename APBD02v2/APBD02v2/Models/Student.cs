@@ -6,37 +6,32 @@ namespace APBD02v2.Models {
 
     public class Student {
 
-        public Student() {
-        }
-
         //prop + tabx2
+        [XmlAttribute(AttributeName = "indexNumber")]
+        public string Indeks { get; set; }
 
-        [XmlAttribute(AttributeName = "Imie")]
+        [XmlElement(ElementName = "fname")]
         public string Imie { get; set; }
 
-        [XmlAttribute(AttributeName = "Nazwisko")]
+        [XmlElement(ElementName = "lname")]
         //[JsonPropertyName("LastName")]
         public string Nazwisko { get; set; }
 
-        [XmlAttribute(AttributeName = "kierunek")]
-        public string Kierunek { get; set; }
-
-        [XmlAttribute(AttributeName = "tryb")]
-        public string Tryb { get; set; }
-
-        [XmlAttribute(AttributeName = "jakas liczba")]
-        public string Liczba { get; set; }
-
-        [XmlAttribute(AttributeName = "data urodzenia")]
+        [XmlElement(ElementName = "birthdate")]
         public string Urodz { get; set; }
 
-        [XmlAttribute(AttributeName = "email")]
+        [XmlElement(ElementName = "email")]
         public string Email { get; set; }
 
-        [XmlAttribute(AttributeName = "imie matki")]
+        [XmlElement(ElementName = "mothersName")]
         public string ImieMatki { get; set; }
 
-        [XmlAttribute(AttributeName = "imie ojca")]
+        [XmlElement(ElementName = "fathersName")]
         public string ImieOjca { get; set; }
+
+        public Studies studies { get; set; }
+
+        public Student() {
+        }
     }
 }
