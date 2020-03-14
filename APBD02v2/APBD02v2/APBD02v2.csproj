@@ -13,4 +13,8 @@
   <ItemGroup>
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Models\Studenci.cs" />
+    <Compile Remove="Models\Computer Science.cs" />
+  </ItemGroup>
 </Project>
